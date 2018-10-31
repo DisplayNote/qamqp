@@ -1,3 +1,6 @@
+os:
+  - windows
+  - linux
 language: cpp
 cache: apt
 env:
