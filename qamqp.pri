@@ -6,15 +6,16 @@ isEmpty(QAMQP_LIBRARY_TYPE) {
 
 QT += network
 QAMQP_INCLUDEPATH = $${PWD}/src
+win32:QAMQP_LIBS = -lqamqp0
 QAMQP_LIBS = -lqamqp
 CONFIG(debug, debug|release){
     QAMQP_LIBS = -lqamqpd
+    win32:QAMQP_LIBS = -lqamqpd0
 }
 contains(QAMQP_LIBRARY_TYPE, staticlib) {
     DEFINES += QAMQP_STATIC
 } else {
     DEFINES += QAMQP_SHARED
-    win32:QAMQP_LIBS = -lqamqp0
 }
 
 isEmpty(PREFIX) {
